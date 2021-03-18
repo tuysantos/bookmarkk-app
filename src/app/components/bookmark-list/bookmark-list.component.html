@@ -1,0 +1,52 @@
+
+<div class="list-wrapper">
+      <div class="list-title">
+        <label>My Bookmarks</label>
+      </div>
+      <div class="btn-manage-bokmark">
+        <button id="btnManage" type="button" mat-raised-button color="primary" (click)="addNew()">Add New
+    </button>
+      </div>
+      
+      <mat-list>
+        <div *ngIf="leisureList && leisureList.length > 0" class="item-group">
+            <h3 matSubheader>Leisure</h3>
+            <mat-list-item *ngFor="let item of leisureList" (click)="editBookMark(item.id)" class="item-row">
+               <mat-icon matListIcon class="material-icons" style="display: contents;">bookmark</mat-icon>
+               <h4 matLine>{{item.name}}</h4>
+               <p matLine class="demo-2"> {{item.url}} </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </div>
+        
+        <div *ngIf="personalList && personalList.length > 0" class="item-group">
+            <h3 matSubheader>Personal</h3>
+            <mat-list-item *ngFor="let item of personalList" (click)="editBookMark(item.id)" class="item-row">
+               <mat-icon matListIcon class="material-icons" style="display: contents;">bookmark</mat-icon>
+               <h4 matLine>{{item.name}}</h4>
+               <p matLine class="demo-2"> {{item.url}} </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </div>
+        
+        <div *ngIf="researchList && researchList.length > 0" class="item-group">
+            <h3 matSubheader>Research</h3>
+            <mat-list-item *ngFor="let item of researchList" (click)="editBookMark(item.id)" class="item-row">
+                <mat-icon matListIcon class="material-icons" style="display: contents;">bookmark</mat-icon>
+                <h4 matLine>{{item.name}}</h4>
+                <p matLine class="demo-2"> {{item.url}} </p>
+             </mat-list-item>
+             <mat-divider></mat-divider>
+        </div>
+        
+        <div *ngIf="workList && workList.length > 0" class="item-group">
+            <h3 matSubheader>Work</h3>
+            <mat-list-item *ngFor="let item of workList" (click)="editBookMark(item.id)" class="item-row">
+                <mat-icon matListIcon class="material-icons" style="display: contents;">bookmark</mat-icon>
+                <h4 matLine>{{item.name}}</h4>
+                <p matLine class="demo-2"> {{item.url}} </p>
+             </mat-list-item>
+        </div>
+        
+     </mat-list>
+</div>

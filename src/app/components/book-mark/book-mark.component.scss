@@ -1,0 +1,38 @@
+.form-container {
+    margin-top:60px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    @media screen and (max-width: 500px) {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .mt-10 {
+        margin-top:10px
+    }
+
+    .form-title-wrapper {
+        font-size: 20px;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .save-button {
+        margin-top:20px;
+        @media screen and (min-width: 450px) {
+            text-align: end;
+            margin-right: 30px;
+        }
+
+        button {
+            width: 100px;
+        }
+
+        .mr {
+            margin-right: 30px;
+        }
+    }
+
+}

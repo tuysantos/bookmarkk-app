@@ -1,0 +1,44 @@
+
+<div fxLayout="column" fxLayoutAlign="center" class="form-container">
+    <div  class="form-title-wrapper"><label>Add New Bookmark</label></div>
+    <form [formGroup]="bookMarkForm" (ngSubmit)="saveBookMark()">
+      <div fxLayoutAlign="center">
+        <mat-form-field style="width:100%">
+          <mat-label>Enter name</mat-label>
+          <input formControlName="bookMarkName" matInput>
+        </mat-form-field>
+      </div>
+      <ng-container *ngFor="let error of error_messages.bookMarkName">
+        <mat-error *ngIf="bookMarkForm.get('bookMarkName').hasError(error.type) && (bookMarkForm.get('bookMarkName').dirty || bookMarkForm.get('bookMarkName').touched)">{{error.message}}</mat-error>
+      </ng-container>
+
+      <div fxLayoutAlign="center" class="mt-10">
+        <mat-form-field style="width:100%">
+          <mat-label>Enter url</mat-label>
+          <input type="url" formControlName="url" matInput>
+        </mat-form-field>
+      </div>
+      <ng-container *ngFor="let error of error_messages.url">
+        <mat-error *ngIf="bookMarkForm.get('url').hasError(error.type) && (bookMarkForm.get('url').dirty || bookMarkForm.get('url').touched)">{{error.message}}</mat-error>
+      </ng-container>
+
+      <div fxLayoutAlign="center" class="mt-10">
+        <mat-form-field style="width:100%">
+            <mat-label>Group</mat-label>
+            <mat-select id="lstGroup" formControlName="groupId">
+                <mat-option>Please select an option</mat-option>
+                <mat-option *ngFor="let item of groupList;" [value]="item.id">{{item.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+      <ng-container *ngFor="let error of error_messages.group">
+        <mat-error *ngIf="bookMarkForm.get('groupId').hasError(error.type) && (bookMarkForm.get('groupId').dirty || bookMarkForm.get('groupId').touched)">{{error.message}}</mat-error>
+      </ng-container>
+
+      <div fxLayoutAlign="center" class="save-button">
+        <button id="btnCancel" type="button" mat-raised-button color="warn" class="mr" (click)="goToList()">Cancel</button>
+        <button *ngIf="isFormModeEdit" id="btnDelete" type="button" mat-raised-button color="default" class="mr" (click)="deleteBookMark()">Delete</button>
+        <button  id="btnUpdate" [disabled]="!bookMarkForm.valid" type="submit" mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </div>
